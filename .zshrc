@@ -19,27 +19,19 @@ alias ls='ls -FG'
 alias ll='ls -alFG'
 alias python=python3
 alias mp=multipass
-alias v=nvim
 
 export PATH="$HOME/.local/bin:$PATH"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 export OpenMP_ROOT=$(brew --prefix)/opt/libomp
-
-source $HOME/.cargo/env
-
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-export EDITOR=nvim
+export EDITOR=vim
 
 autoload -Uz colors && colors
 zstyle ':completion:*' menu select
 eval "$(uv generate-shell-completion zsh)"
+source $HOME/.cargo/env
 
 # for vscode integrated terminal
 bindkey -e
