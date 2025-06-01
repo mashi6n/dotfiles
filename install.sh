@@ -13,6 +13,7 @@ mkdir -p $HOME/.config
 [ -e $HOME/.config/raycast ] || ln -s $HOME/dotfiles/raycast $HOME/.config/raycast
 [ -e $HOME/.config/alacritty ] || ln -s $HOME/dotfiles/alacritty $HOME/.config/alacritty
 [ -e $HOME/.config/karabiner ] || ln -s $HOME/dotfiles/karabiner $HOME/.config/karabiner
+[ -e $HOME/.config/nvim ] || ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
 
 brew install \
     alacritty \
