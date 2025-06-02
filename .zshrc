@@ -22,6 +22,7 @@ alias mp=multipass
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -30,7 +31,8 @@ export EDITOR=vim
 
 autoload -Uz colors && colors
 zstyle ':completion:*' menu select
-eval "$(uv generate-shell-completion zsh)"
+# eval "$(uv generate-shell-completion zsh)"
+source $HOME/dotfiles/.completion.d
 source $HOME/.cargo/env
 
 # for vscode integrated terminal
