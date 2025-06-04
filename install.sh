@@ -14,6 +14,7 @@ mkdir -p $HOME/.config
 [ -e $HOME/.config/alacritty ] || ln -s $HOME/dotfiles/alacritty $HOME/.config/alacritty
 [ -e $HOME/.config/karabiner ] || ln -s $HOME/dotfiles/karabiner $HOME/.config/karabiner
 [ -e $HOME/.config/nvim ] || ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
+[ -e $HOME/.config/bat ] || ln -s $HOME/dotfiles/bat $HOME/.config/bat
 
 brew install \
     alacritty \

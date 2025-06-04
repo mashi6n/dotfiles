@@ -45,6 +45,7 @@ if type fd &> /dev/null; then
 fi
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+export BAT_THEME="Catppuccin Mocha"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
