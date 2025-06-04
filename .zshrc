@@ -38,8 +38,10 @@ bindkey -e
 
 #refer rg over ag
 if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 fi
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
