@@ -36,6 +36,10 @@ source $HOME/.cargo/env
 # for vscode integrated terminal
 bindkey -e
 
+#refer rg over ag
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
