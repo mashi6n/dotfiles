@@ -12,6 +12,6 @@ offset = { x = 1, y = 1 }
 
 [window]
 padding = { x = 6, y = 6 }
-opacity = 0.9
-blur = true
+# opacity = 0.9
+# blur = true
 
