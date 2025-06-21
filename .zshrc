@@ -62,3 +62,9 @@ export BAT_THEME="Catppuccin Mocha"
 # unset __conda_setup
 # <<< conda initialize <<<
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/completion.zsh.inc'; fi
