@@ -70,3 +70,11 @@ if [ -f '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mashiro.toyooka.ng-pt/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/mashiro.toyooka.ng-pt/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
