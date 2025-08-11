@@ -1,20 +1,3 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out,                            "WarningMsg" },
-            { "\nPress any key to exit..." },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
-end
-vim.opt.rtp:prepend(lazypath)
-
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -22,8 +5,37 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 if vim.g.vscode then
+    local vscode = require('vscode')
+    local function map(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, { silent = true, nowait = true, desc = desc })
+    end
+    map('n', 'gd', function() vscode.action('editor.action.revealDefinition') end, 'Go to Definition')
+    map('n', 'gr', function() vscode.action('editor.action.referenceSearch.trigger') end, 'Find References')
+    map('n', 'gh',  function() vscode.action('editor.action.showHover') end, 'Hover')
+    map('n', '<leader>rn', function() vscode.action('editor.action.rename') end, 'Rename')
+    -- map({ 'n','v' }, '<leader>f',  function() vscode.action('editor.action.formatDocument') end, 'Format')
+    -- map({ 'n','v' }, '<leader>ca', function() vscode.action('editor.action.quickFix') end, 'Code Action')
+    map({ 'n','v' }, '<leader>cr', function() vscode.action('editor.action.refactor') end, 'Refactor')
+    map('n', 'gI', function() vscode.action('editor.action.goToImplementation') end, 'Go to Implementation')
+    map('n', 'gt', function() vscode.action('editor.action.goToTypeDefinition') end, 'Go to Type Definition')
 
 else
+    -- Bootstrap lazy.nvim
+    local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+    if not (vim.uv or vim.loop).fs_stat(lazypath) then
+        local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+        local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+        if vim.v.shell_error ~= 0 then
+            vim.api.nvim_echo({
+                { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+                { out,                            "WarningMsg" },
+                { "\nPress any key to exit..." },
+            }, true, {})
+            vim.fn.getchar()
+            os.exit(1)
+        end
+    end
+    vim.opt.rtp:prepend(lazypath)
     -- Setup lazy.nvim
     require("lazy").setup({
         spec = {
