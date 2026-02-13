@@ -120,23 +120,6 @@
                     },
                     "ignore": false,
                     "treat_as_built_in_keyboard": true
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 2,
-                        "vendor_id": 14477
-                    },
-                    "ignore": false
-                },
-                {
-                    "identifiers": {
-                        "device_address": "c7-06-78-8b-be-1b",
-                        "is_keyboard": true,
-                        "is_pointing_device": true
-                    },
-                    "ignore": false
                 }
             ],
             "name": "Default profile",
