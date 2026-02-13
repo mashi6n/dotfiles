@@ -91,6 +91,18 @@ else
     vim.keymap.set("n", "<leader>b", telescope.buffers, { noremap = true, silent = true })
 
     local colors = require("catppuccin.palettes").get_palette("mocha")
+    vim.api.nvim_set_hl(0, "Normal", {
+        bg = "#1e1e2e",
+    })
+    vim.api.nvim_set_hl(0, "NormalNC", {
+        bg = "#161621",
+    })
+    vim.api.nvim_set_hl(0, "SignColumn", {
+        bg = "#1e1e2e",
+    })
+    vim.api.nvim_set_hl(0, "SignColumnNC", {
+        bg = "#161621",
+    })
     vim.api.nvim_set_hl(0, "WinSeparator", {
         fg = colors.lavender,
         bg = "NONE",
@@ -98,6 +110,18 @@ else
     vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
         fg = colors.lavender,
         bg = "NONE",
+    })
+    vim.api.nvim_set_hl(0, "NvimTreeNormal", {
+        bg = "#1e1e2e",
+    })
+    vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {
+        bg = "#161621",
+    })
+    vim.api.nvim_set_hl(0, "NvimTreeSignColumn", {
+        bg = "#1e1e2e",
+    })
+    vim.api.nvim_set_hl(0, "NvimTreeSignColumnNC", {
+        bg = "#161621",
     })
 end
 -- vim.o.winbar = require("rc.ui.statusline").statusline()
@@ -124,3 +148,14 @@ end
 -- Normal mode and Visual mode
 vim.keymap.set({"n", "v"}, "<leader>y", '"+y', { noremap = true, silent = true })
 vim.keymap.set({"n", "v"}, "<leader>p", '"+p', { noremap = true, silent = true })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        vim.cmd("startinsert")
+    end,
+})
+
+vim.keymap.set("t", "<C-w>h", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
+vim.keymap.set("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
+vim.keymap.set("t", "<C-w>k", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
+vim.keymap.set("t", "<C-w>l", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
