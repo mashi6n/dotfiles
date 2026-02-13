@@ -6,8 +6,14 @@ return {
 	},
 	opts = {
 		border_style = "single",
+		finder = {
+			keys = {
+				toggle_or_open = { "o", "<CR>" },
+				quit = { "q", "<ESC>" },
+			},
+		},
 		symbol_in_winbar = {
-			enable = true,
+			enable = false,
 		},
 		code_action_lightbulb = {
 			enable = true,
@@ -20,8 +26,12 @@ return {
 	config = function(_, opts)
 		require("lspsaga").setup(opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+		vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc ++silent<CR>")
 		vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>")
-		vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
+		vim.keymap.set("n", "<leader>r", "<nop>")
+		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
 		vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
 		vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
 		vim.keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")

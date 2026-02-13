@@ -25,6 +25,7 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = servers,
+			automatic_enable = false,
 		})
 		vim.lsp.enable(servers)
 
@@ -57,7 +58,6 @@ return {
 			callback = function(args)
 				-- async=false で同期実行。大ファイルが気になるなら true に
 				vim.lsp.buf.format({ bufnr = args.buf, async = false, timeout = 3000 })
-				vim.cmd("write")
 			end,
 		})
 		-- vim.api.nvim_create_autocmd("CursorHold", {
