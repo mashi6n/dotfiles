@@ -10,6 +10,7 @@ path=(
 	/usr/local/sbin(N-/)
 	/Library/Apple/usr/bin
 	/opt/X11/bin
+	$path
 )
 
 # init sheldon

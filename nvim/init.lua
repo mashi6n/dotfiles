@@ -43,7 +43,10 @@ else
             { import = "plugins" },
         },
         -- automatically check for plugin updates
-        checker = { enabled = true },
+        checker = {
+            enabled = true,
+            frequency = 86400, -- check for updates once per day
+        },
     })
 
     vim.opt.clipboard = "unnamedplus"
