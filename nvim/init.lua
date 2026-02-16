@@ -89,7 +89,8 @@ else
     })
     vim.opt.signcolumn = "yes"
     vim.opt.termguicolors = true
-    vim.opt.guicursor = "a:blinkon0"
+    vim.opt.guicursor:append("t:block-blinkon0")
+
     vim.opt.winblend = 0
     vim.opt.pumblend = 0
 
