@@ -15,8 +15,10 @@ return {
 		symbol_in_winbar = {
 			enable = false,
 		},
-		code_action_lightbulb = {
-			enable = true,
+		lightbulb = {
+			enable = false,
+			sign = false,
+			virtual_text = false,
 		},
 		show_outline = {
 			win_width = 50,
