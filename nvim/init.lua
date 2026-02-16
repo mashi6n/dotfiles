@@ -65,17 +65,23 @@ else
     vim.opt.clipboard = "unnamedplus"
 
     vim.diagnostic.config({
-        virtual_text = {
-            prefix = "●",
-            format = function(diagnostic)
-                return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-            end,
+        virtual_text = false,
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = "▎",
+                [vim.diagnostic.severity.WARN] = "▎",
+            },
+            numhl = {
+                [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+            },
+            severity = {
+                min = vim.diagnostic.severity.WARN,
+            },
         },
-        signs = false,
         underline = {
             severity = {
-                min = vim.diagnostic.severity.HINT,
-                max = vim.diagnostic.severity.ERROR,
+                min = vim.diagnostic.severity.WARN,
             },
         },
         update_in_insert = false,
@@ -136,6 +142,10 @@ else
     vim.api.nvim_set_hl(0, "NvimTreeSignColumnNC", {
         bg = "#161621",
     })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true, sp = colors.red, fg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { underline = true, sp = colors.yellow, fg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { underline = true, sp = colors.sky, fg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true, sp = colors.teal, fg = "NONE" })
 end
 -- vim.o.winbar = require("rc.ui.statusline").statusline()
 -- vim.cmd.colorscheme("catppuccin-mocha")
