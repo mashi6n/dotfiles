@@ -155,6 +155,29 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
+    group = vim.api.nvim_create_augroup("autosave_on_focuslost_bufleave", { clear = true }),
+    callback = function(ev)
+        local buf = ev.buf
+        if vim.bo[buf].buftype ~= "" then
+            return
+        end
+        if vim.api.nvim_buf_get_name(buf) == "" then
+            return
+        end
+        if not vim.bo[buf].modifiable or vim.bo[buf].readonly then
+            return
+        end
+        if not vim.bo[buf].modified then
+            return
+        end
+
+        vim.api.nvim_buf_call(buf, function()
+            vim.cmd("silent! update")
+        end)
+    end,
+})
+
 vim.keymap.set("t", "<C-w>h", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>k", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
