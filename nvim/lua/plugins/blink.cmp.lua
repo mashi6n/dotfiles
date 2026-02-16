@@ -43,6 +43,9 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			trigger = {
+				show_on_insert = false,
+			},
 			list = {
 				selection = { auto_insert = false },
 			},
@@ -108,7 +111,8 @@ return {
 					name = "copilot",
 					module = "blink-cmp-copilot",
 					score_offset = 100,
-					async = true,
+					min_keyword_length = 0,
+					async = false,
 				},
 			},
 		},

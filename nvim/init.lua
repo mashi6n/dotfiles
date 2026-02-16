@@ -205,6 +205,24 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
+vim.api.nvim_create_autocmd("InsertEnter", {
+    group = vim.api.nvim_create_augroup("blink_show_on_insert_enter", { clear = true }),
+    callback = function()
+        if vim.bo.buftype ~= "" then
+            return
+        end
+
+        local ok, cmp = pcall(require, "blink.cmp")
+        if not ok then
+            return
+        end
+
+        vim.defer_fn(function()
+            cmp.show()
+        end, 80)
+    end,
+})
+
 vim.keymap.set("t", "<C-w>h", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>k", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
