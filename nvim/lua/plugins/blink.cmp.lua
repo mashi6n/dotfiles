@@ -49,7 +49,7 @@ return {
 			documentation = { auto_show = true, auto_show_delay_ms = 50 },
 			menu = {
 				draw = {
-					columns = { { "kind_icon" }, { "label", gap = 1 } },
+					columns = { { "kind_icon" }, { "label", "copilot_label", gap = 1 } },
 					padding = { 0, 1 }, -- padding only on right side
 					components = {
 						label = {
@@ -68,6 +68,10 @@ return {
 							-- 	})
 							-- end,
 							text = function(ctx)
+								if ctx.source_name == "copilot" then
+									return "  "
+								end
+
 								local lspkind = require("lspkind")
 								local kind = ctx.kind or "Text"
 								local icon = lspkind.symbol_map[kind] or "?"
@@ -76,6 +80,16 @@ return {
 							highlight = function(ctx)
 								return { { group = ctx.kind_hl, priority = 20000 } }
 							end,
+						},
+						copilot_label = {
+							width = { max = 10 },
+							text = function(ctx)
+								if ctx.source_name == "copilot" then
+									return "Copilot"
+								end
+								return ""
+							end,
+							highlight = "BlinkCmpSource",
 						},
 					},
 				},
