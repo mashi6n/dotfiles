@@ -1,7 +1,12 @@
 return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "L3MON4D3/LuaSnip" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
+		"L3MON4D3/LuaSnip",
+		"giuxtaposition/blink-cmp-copilot",
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -25,7 +30,10 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "super-tab" },
+		keymap = {
+			preset = "default",
+			["<Tab>"] = { "accept", "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -35,10 +43,16 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			trigger = {
+				show_on_insert = false,
+			},
+			list = {
+				selection = { auto_insert = false },
+			},
 			documentation = { auto_show = true, auto_show_delay_ms = 50 },
 			menu = {
 				draw = {
-					columns = { { "kind_icon" }, { "label", gap = 1 } },
+					columns = { { "kind_icon" }, { "label", "copilot_label", gap = 1 } },
 					padding = { 0, 1 }, -- padding only on right side
 					components = {
 						label = {
@@ -57,6 +71,10 @@ return {
 							-- 	})
 							-- end,
 							text = function(ctx)
+								if ctx.source_name == "copilot" then
+									return "  "
+								end
+
 								local lspkind = require("lspkind")
 								local kind = ctx.kind or "Text"
 								local icon = lspkind.symbol_map[kind] or "?"
@@ -65,6 +83,16 @@ return {
 							highlight = function(ctx)
 								return { { group = ctx.kind_hl, priority = 20000 } }
 							end,
+						},
+						copilot_label = {
+							width = { max = 10 },
+							text = function(ctx)
+								if ctx.source_name == "copilot" then
+									return "Copilot"
+								end
+								return ""
+							end,
+							highlight = "BlinkCmpSource",
 						},
 					},
 				},
@@ -77,7 +105,16 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-cmp-copilot",
+					score_offset = 100,
+					min_keyword_length = 0,
+					async = false,
+				},
+			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
