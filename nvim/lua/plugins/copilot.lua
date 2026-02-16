@@ -3,7 +3,7 @@ return {
     cmd = "Copilot",
     config = function()
         require("copilot").setup({
-            suggestion = { enabled = true, auto_trigger = true, keymap = { accept = "<tab>" } },
+            suggestion = { enabled = false },
             panel = { enabled = false },
             copilot_node_command = "node",
         })

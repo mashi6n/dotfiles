@@ -1,7 +1,12 @@
 return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "L3MON4D3/LuaSnip" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
+		"L3MON4D3/LuaSnip",
+		"giuxtaposition/blink-cmp-copilot",
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -25,7 +30,10 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "super-tab" },
+		keymap = {
+			preset = "default",
+			["<Tab>"] = { "accept", "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -35,6 +43,9 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			list = {
+				selection = { auto_insert = false },
+			},
 			documentation = { auto_show = true, auto_show_delay_ms = 50 },
 			menu = {
 				draw = {
@@ -77,7 +88,15 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-cmp-copilot",
+					score_offset = 100,
+					async = true,
+				},
+			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

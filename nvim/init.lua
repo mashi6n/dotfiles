@@ -5,20 +5,33 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 if vim.g.vscode then
-    local vscode = require('vscode')
+    local vscode = require("vscode")
     local function map(mode, lhs, rhs, desc)
         vim.keymap.set(mode, lhs, rhs, { silent = true, nowait = true, desc = desc })
     end
-    map('n', 'gd', function() vscode.action('editor.action.revealDefinition') end, 'Go to Definition')
-    map('n', 'gr', function() vscode.action('editor.action.referenceSearch.trigger') end, 'Find References')
-    map('n', 'gh',  function() vscode.action('editor.action.showHover') end, 'Hover')
-    map('n', '<leader>rn', function() vscode.action('editor.action.rename') end, 'Rename')
+    map("n", "gd", function()
+        vscode.action("editor.action.revealDefinition")
+    end, "Go to Definition")
+    map("n", "gr", function()
+        vscode.action("editor.action.referenceSearch.trigger")
+    end, "Find References")
+    map("n", "gh", function()
+        vscode.action("editor.action.showHover")
+    end, "Hover")
+    map("n", "<leader>rn", function()
+        vscode.action("editor.action.rename")
+    end, "Rename")
     -- map({ 'n','v' }, '<leader>f',  function() vscode.action('editor.action.formatDocument') end, 'Format')
     -- map({ 'n','v' }, '<leader>ca', function() vscode.action('editor.action.quickFix') end, 'Code Action')
-    map({ 'n','v' }, '<leader>cr', function() vscode.action('editor.action.refactor') end, 'Refactor')
-    map('n', 'gI', function() vscode.action('editor.action.goToImplementation') end, 'Go to Implementation')
-    map('n', 'gt', function() vscode.action('editor.action.goToTypeDefinition') end, 'Go to Type Definition')
-
+    map({ "n", "v" }, "<leader>cr", function()
+        vscode.action("editor.action.refactor")
+    end, "Refactor")
+    map("n", "gI", function()
+        vscode.action("editor.action.goToImplementation")
+    end, "Go to Implementation")
+    map("n", "gt", function()
+        vscode.action("editor.action.goToTypeDefinition")
+    end, "Go to Type Definition")
 else
     -- Bootstrap lazy.nvim
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -146,8 +159,8 @@ end
 
 -- Clipboard keybindings
 -- Normal mode and Visual mode
-vim.keymap.set({"n", "v"}, "<leader>y", '"+y', { noremap = true, silent = true })
-vim.keymap.set({"n", "v"}, "<leader>p", '"+p', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
@@ -175,6 +188,20 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
         vim.api.nvim_buf_call(buf, function()
             vim.cmd("silent! update")
         end)
+    end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "BlinkCmpMenuOpen",
+    callback = function()
+        vim.b.copilot_suggestion_hidden = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "BlinkCmpMenuClose",
+    callback = function()
+        vim.b.copilot_suggestion_hidden = false
     end,
 })
 
