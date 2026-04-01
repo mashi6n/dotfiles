@@ -1,0 +1,25 @@
+theme = Catppuccin Mocha
+font-family = "SFMono Nerd Font"
+font-style = "Regular"
+font-style-bold = "Medium"
+font-size = 14
+font-thicken = true
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+window-padding-x = 6
+window-padding-y = 6
+window-padding-balance = true
+
+macos-titlebar-proxy-icon = hidden
+macos-icon = holographic
+
+keybind = clear
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = super+n=new_window
+keybind = super+q=quit
+
+

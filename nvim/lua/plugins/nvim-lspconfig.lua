@@ -21,6 +21,7 @@ return {
 			"ruff",
 			"ts_ls",
 			"rust_analyzer",
+			"nil_ls",
 		}
 
 		require("mason-lspconfig").setup({
