@@ -90,15 +90,12 @@
   };
 
   home.sessionVariables = {
-    GOPATH = "$HOME/go";
   };
 
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
     "$HOME/.nodebrew/current/bin"
-    "/usr/local/go/bin"
-    "$HOME/go/bin"
   ];
 
   home.packages = with pkgs; [
