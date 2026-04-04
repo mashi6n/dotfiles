@@ -22,4 +22,14 @@
       };
     };
   };
+
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+    };
+    casks = [
+      "sublime-text"
+    ];
+  };
 }
