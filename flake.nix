@@ -151,7 +151,7 @@
             user = host.username;
           };
           modules = [
-            ./modules/nix-darwin-empty-nix
+            ./modules/nix-darwin-empty.nix
           ];
         };
     in
