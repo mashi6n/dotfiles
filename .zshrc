@@ -1,17 +1,34 @@
 typeset -U path PATH
-path=(
-	/usr/bin
-	/opt/homebrew/bin(N-/)
-	/opt/homebrew/sbin(N-/)
-	/usr/sbin
-	/bin
-	/sbin
-	/usr/local/bin(N-/)
-	/usr/local/sbin(N-/)
-	/Library/Apple/usr/bin
-	/opt/X11/bin
-	$path
-)
+prepend_path() {
+  local p="$1"
+  if [[ -d "$p" && ${path[(Ie)$p]} -eq 0 ]]; then
+    path=("$p" "${path[@]}")
+  fi
+}
+
+prepend_path /usr/bin
+prepend_path /opt/homebrew/bin
+prepend_path /opt/homebrew/sbin
+prepend_path /usr/sbin
+prepend_path /bin
+prepend_path /sbin
+prepend_path /usr/local/bin
+prepend_path /usr/local/sbin
+prepend_path /Library/Apple/usr/bin
+prepend_path /opt/X11/bin
+# path=(
+# 	/usr/bin
+# 	/opt/homebrew/bin(N-/)
+# 	/opt/homebrew/sbin(N-/)
+# 	/usr/sbin
+# 	/bin
+# 	/sbin
+# 	/usr/local/bin(N-/)
+# 	/usr/local/sbin(N-/)
+# 	/Library/Apple/usr/bin
+# 	/opt/X11/bin
+# 	$path
+# )
 
 # init sheldon
 eval "$(sheldon source)"
@@ -79,6 +96,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# direnv
+eval "$(direnv hook zsh)"
 
 export TERM="xterm-256color"
 
