@@ -20,8 +20,8 @@
         source "$HOME/.cargo/env"
       fi
 
-      if [ -f "$HOME/dotfiles/.completion.d" ]; then
-        source "$HOME/dotfiles/.completion.d"
+      if [ -f "$HOME/.completion.d" ]; then
+        source "$HOME/.completion.d"
       fi
 
       bindkey -e
@@ -76,6 +76,8 @@
     [plugins.pure]
     github = "sindresorhus/pure"
   '';
+
+  home.file.".completion.d".source = ./../.completion.d;
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
