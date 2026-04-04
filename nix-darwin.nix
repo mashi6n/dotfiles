@@ -1,12 +1,11 @@
 {pkgs, ...}: {
 
-  nix = {
-    optimise.automatic = true;
-    settings = {
-      experimental-features = "nix-command flakes";
-    };
-  };
-  services.nix-daemon.enable = true;
+  # nix = {
+  #   optimise.automatic = true;
+  #   settings = {
+  #     experimental-features = "nix-command flakes";
+  #   };
+  # };
 
   # system = {
   #   defaults = {
