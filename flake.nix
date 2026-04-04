@@ -82,6 +82,7 @@
             modules = [
               ./home.nix
               ./modules/git.nix
+              ./modules/shell.nix
               {
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";
