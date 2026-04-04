@@ -22,6 +22,10 @@
   #   };
   # };
 
+  system = {
+    stateVersion = 6;
+  };
+
   homebrew = {
     enable = true;
     onActivation = {
