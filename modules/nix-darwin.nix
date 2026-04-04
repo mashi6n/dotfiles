@@ -36,7 +36,15 @@
       autoUpdate = true;
     };
     casks = [
-      "sublime-text"
+      "ghostty"
+      "visual-studio-code"
+      "karabiner-elements"
+      "raycast"
+      "alt-tab"
+      "google-chrome"
+      "notion"
+      "notion-calendar"
+      "slack"
     ];
   };
 }
