@@ -24,6 +24,7 @@
 
   system = {
     stateVersion = 6;
+    primaryUser = "mashi6n";
   };
 
   homebrew = {
