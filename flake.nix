@@ -9,11 +9,15 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # Flake outputs
   outputs =
-    { self, home-manager, ... }@inputs:
+    { self, home-manager, nix-darwin, ... }@inputs:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -52,34 +56,6 @@
         };
     in
     {
-      # Development environments output by this flake
-
-      # To activate the default environment:
-      # nix develop
-      # Or if you use direnv:
-      # direnv allow
-      devShells = forEachSupportedSystem (
-        { pkgs, system }:
-        {
-          # Run `nix develop` to activate this environment or `direnv allow` if you have direnv installed
-          default = pkgs.mkShellNoCC {
-            # The Nix packages provided in the environment
-            packages = with pkgs; [
-              # Add the flake's formatter to your project's environment
-              self.formatter.${system}
-
-              # Other packages
-              ponysay
-            ];
-
-            # Set any environment variables for your development environment
-            env = { };
-
-            # Add any shell logic you want executed when the environment is activated
-            shellHook = "";
-          };
-        }
-      );
 
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt);
 
@@ -112,6 +88,15 @@
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";
               }
+            ];
+          };
+      };
+
+      darwinConfigurations = {
+          mashi6n = nix-darwin.lib.darwinSystem {
+            sytstem = "aarch64-darwin";
+            modules = [
+              ./modules/nix-darwin.nix
             ];
           };
       };
