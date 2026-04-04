@@ -1,5 +1,8 @@
 {pkgs, ...}: {
 
+  nix = {
+    enable = false;
+  };
   # nix = {
   #   optimise.automatic = true;
   #   settings = {
