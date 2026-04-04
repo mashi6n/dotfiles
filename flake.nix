@@ -82,6 +82,7 @@
             modules = [
               ./home.nix
               ./modules/git.nix
+              ./modules/tmux.nix
               ./modules/shell.nix
               {
                 home.username = "mashi6n";
