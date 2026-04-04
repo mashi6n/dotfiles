@@ -74,8 +74,6 @@
               ./modules/colima.nix
               ./modules/nvim.nix
               ./modules/python.nix
-              ./modules/go.nix
-              ./modules/node.nix
               {
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";

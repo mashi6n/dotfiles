@@ -14,10 +14,6 @@
       autoload -Uz colors && colors
       zstyle ':completion:*' menu select
 
-      if [ -f "$HOME/.cargo/env" ]; then
-        source "$HOME/.cargo/env"
-      fi
-
       if [ -f "$HOME/.completion.d" ]; then
         source "$HOME/.completion.d"
       fi
@@ -95,7 +91,6 @@
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    "$HOME/.nodebrew/current/bin"
   ];
 
   home.packages = with pkgs; [
