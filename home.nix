@@ -5,7 +5,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    git
   ];
   home.file.".config/nvim".source = ./config/nvim;
   home.file.".config/alacritty".source = ./config/alacritty;
