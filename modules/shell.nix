@@ -85,7 +85,7 @@
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
-    EDITOR = "vim";
+    EDITOR = "nvim";
     BAT_THEME = "Catppuccin Mocha";
   };
 
