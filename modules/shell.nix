@@ -88,7 +88,7 @@
       theme = "Catppuccin Mocha";
     };
   };
-  xdg.configFile."bat".source = ./../config/bat;
+  home.file.".config/bat".source = ./../config/bat;
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
