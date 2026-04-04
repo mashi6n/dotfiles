@@ -26,13 +26,6 @@
 
       bindkey -e
 
-      if type rg >/dev/null 2>&1; then
-        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-      fi
-      if type fd >/dev/null 2>&1; then
-        export FZF_DEFAULT_COMMAND='fd'
-      fi
-
       export TERM="xterm-256color"
     '';
   };
@@ -77,12 +70,24 @@
     github = "sindresorhus/pure"
   '';
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+
+    defaultCommand = "rg --files --hidden --glob '!.git'";
+    defaultOptions = [
+      "--height 40%"
+      "--reverse"
+      "--border"
+      "--preview 'bat --style=numbers --color=always {}'"
+    ];
+  };
+
   home.file.".completion.d".source = ./../.completion.d;
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
     EDITOR = "vim";
-    FZF_DEFAULT_OPTS = "--height 40% --reverse --border";
     BAT_THEME = "Catppuccin Mocha";
   };
 
@@ -98,5 +103,8 @@
     zsh
     sheldon
     direnv
+    fzf
+    ripgrep
+    bat
   ];
 }

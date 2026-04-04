@@ -6,9 +6,6 @@
 
   home.packages = with pkgs; [
     git
-    bat
-    ripgrep
-    fzf
   ];
   home.file.".config/nvim".source = ./config/nvim;
   home.file.".config/alacritty".source = ./config/alacritty;
