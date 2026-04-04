@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, user, ...}: {
 
   nix = {
     enable = false;
@@ -27,7 +27,7 @@
 
   system = {
     stateVersion = 6;
-    primaryUser = "mashi6n";
+    primaryUser = user;
   };
 
   homebrew = {

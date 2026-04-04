@@ -135,8 +135,23 @@
         host:
         nix-darwin.lib.darwinSystem {
           system = host.system;
+          specialArgs = {
+            user = host.username;
+          };
           modules = [
             ./modules/nix-darwin.nix
+          ];
+        };
+      
+      mkEmptyDarwinConfig = 
+        host:
+        nix-darwin.lib.darwinSystem {
+          system = host.system;
+          specialArgs = {
+            user = host.username;
+          };
+          modules = [
+            ./modules/nix-darwin-empty-nix
           ];
         };
     in
@@ -159,7 +174,9 @@
 
       darwinConfigurations = {
         mashi6n = mkDarwinConfig hosts.mashi6n;
+        "mashi6n-empty" = mkEmptyDarwinConfig hosts.mashi6n;
         mashiro-toyooka = mkDarwinConfig hosts.mashiro-toyooka;
+        "mashiro-toyooka-empty" = mkEmptyDarwinConfig hosts.mashiro-toyooka;
       };
     };
 }
