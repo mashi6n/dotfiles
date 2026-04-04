@@ -4,6 +4,7 @@
   # Flake inputs
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,24 +15,24 @@
   outputs =
     { self, home-manager, ... }@inputs:
     let
-      # The systems supported for this flake's outputs
       supportedSystems = [
-        "x86_64-linux" # 64-bit Intel/AMD Linux
-        "aarch64-linux" # 64-bit ARM Linux
-        "aarch64-darwin" # 64-bit ARM macOS
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
       ];
 
-      # Helper for providing system-specific attributes
       forEachSupportedSystem =
         f:
         inputs.nixpkgs.lib.genAttrs supportedSystems (
           system:
           f {
             inherit system;
-            # Provides a system-specific, configured Nixpkgs
             pkgs = import inputs.nixpkgs {
               inherit system;
-              # Enable using unfree packages
+              config.allowUnfree = true;
+            };
+            unstablePkgs = import inputs.nixpkgs-unstable {
+              inherit system;
               config.allowUnfree = true;
             };
           }
@@ -40,6 +41,12 @@
       mkPkgs = 
         system:
         import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      mkUnstablePkgs = 
+        system:
+        import inputs.nixpkgs-unstable {
           inherit system;
           config.allowUnfree = true;
         };
@@ -79,6 +86,9 @@
       homeConfigurations = {
           mashi6n = home-manager.lib.homeManagerConfiguration {
             pkgs = mkPkgs "aarch64-darwin";
+            extraSpecialArgs = {
+              unstablePkgs = mkUnstablePkgs "aarch64-darwin";
+            };
             modules = [
               ./home.nix
               ./modules/git.nix

@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ unstablePkgs, ... }:
 
 {
-  home.packages = with pkgs; [
+  home.packages = with unstablePkgs; [
     colima
   ];
 }
