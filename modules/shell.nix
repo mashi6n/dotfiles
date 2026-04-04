@@ -44,8 +44,8 @@
 
   programs.sheldon = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
-      enableZshIntegration = true;
       shell = "zsh";
 
       templates = {
@@ -53,34 +53,34 @@
       };
 
       plugins = {
-        zsh-defer = {
+        "00-zsh-defer" = {
           github = "romkatv/zsh-defer";
         };
 
-        compinit = {
+        "10-compinit" = {
           inline = "autoload -Uz compinit && compinit -C";
         };
 
-        zsh-async = {
+        "20-zsh-async" = {
           github = "mafredri/zsh-async";
         };
 
-        zsh-completions = {
+        "30-zsh-completions" = {
           github = "zsh-users/zsh-completions";
           apply = [ "defer" ];
         };
 
-        zsh-autosuggestions = {
+        "40-zsh-autosuggestions" = {
           github = "zsh-users/zsh-autosuggestions";
           apply = [ "defer" ];
         };
 
-        zsh-syntax-highlighting = {
+        "50-zsh-syntax-highlighting" = {
           github = "zsh-users/zsh-syntax-highlighting";
           apply = [ "defer" ];
         };
 
-        pure = {
+        "60-pure" = {
           github = "sindresorhus/pure";
         };
       };
