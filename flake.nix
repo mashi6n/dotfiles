@@ -61,6 +61,20 @@
         }
       );
 
+      # Default build outputs
+      packages = forEachSupportedSystem (
+        { pkgs, system }:
+        {
+          my-packages = pkgs.buildEnv {
+            name = "my-packages-list";
+            paths = [
+                pkgs.cowsay
+                pkgs.git
+            ];
+          };
+        }
+      );
+
       # Nix formatter
 
       # This applies the formatter that follows RFC 166, which defines a standard format:
