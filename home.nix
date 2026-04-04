@@ -8,6 +8,5 @@
   ];
   home.file.".config/alacritty".source = ./config/alacritty;
   home.file.".config/ghostty".source = ./config/ghostty;
-  home.file.".config/bat".source = ./config/bat;
   home.file.".config/karabiner".source = ./config/karabiner;
 }

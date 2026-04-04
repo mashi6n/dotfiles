@@ -27,6 +27,7 @@
       export TERM="xterm-256color"
     '';
   };
+  home.file.".completion.d".source = ./../.completion.d;
 
   programs.direnv = {
     enable = true;
@@ -81,11 +82,16 @@
     ];
   };
 
-  home.file.".completion.d".source = ./../.completion.d;
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Catppuccin Mocha";
+    };
+  };
+  home.file.".config/bat".source = ./../config/bat;
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
-    BAT_THEME = "Catppuccin Mocha";
   };
 
   home.sessionPath = [
@@ -97,11 +103,6 @@
   ];
 
   home.packages = with pkgs; [
-    zsh
-    sheldon
-    direnv
-    fzf
     ripgrep
-    bat
   ];
 }
