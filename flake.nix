@@ -67,13 +67,12 @@
             };
             modules = [
               ./home.nix
-              ./modules/git.nix
-              ./modules/tmux.nix
               ./modules/shell.nix
               ./modules/docker.nix
               ./modules/colima.nix
               ./modules/nvim.nix
               ./modules/python.nix
+              ./modules/util-tools.nix
               {
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";

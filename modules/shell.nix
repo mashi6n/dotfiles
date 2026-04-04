@@ -65,25 +65,6 @@
     github = "sindresorhus/pure"
   '';
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-
-    defaultCommand = "rg --files --hidden --glob '!.git'";
-    defaultOptions = [
-      "--height 40%"
-      "--reverse"
-      "--border"
-      "--preview 'bat --style=numbers --color=always {}'"
-    ];
-  };
-
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "Catppuccin Mocha";
-    };
-  };
 
   home.sessionVariables = {
   };
@@ -93,7 +74,4 @@
     "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   ];
 
-  home.packages = with pkgs; [
-    ripgrep
-  ];
 }
