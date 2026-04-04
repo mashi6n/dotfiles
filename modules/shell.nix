@@ -12,9 +12,7 @@
       mp = "multipass";
     };
 
-    initExtra = ''
-      eval "$(sheldon source)"
-
+    initContent = ''
       autoload -Uz colors && colors
       zstyle ':completion:*' menu select
 
@@ -42,6 +40,51 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.sheldon = {
+    enable = true;
+    settings = {
+      enableZshIntegration = true;
+      shell = "zsh";
+
+      templates = {
+        defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}";
+      };
+
+      plugins = {
+        zsh-defer = {
+          github = "romkatv/zsh-defer";
+        };
+
+        compinit = {
+          inline = "autoload -Uz compinit && compinit -C";
+        };
+
+        zsh-async = {
+          github = "mafredri/zsh-async";
+        };
+
+        zsh-completions = {
+          github = "zsh-users/zsh-completions";
+          apply = [ "defer" ];
+        };
+
+        zsh-autosuggestions = {
+          github = "zsh-users/zsh-autosuggestions";
+          apply = [ "defer" ];
+        };
+
+        zsh-syntax-highlighting = {
+          github = "zsh-users/zsh-syntax-highlighting";
+          apply = [ "defer" ];
+        };
+
+        pure = {
+          github = "sindresorhus/pure";
+        };
+      };
+    };
   };
 
   home.sessionVariables = {
