@@ -8,8 +8,6 @@
     shellAliases = {
       ls = "ls -FG";
       ll = "ls -alFG";
-      python = "python3";
-      mp = "multipass";
    };
 
     initContent = ''
