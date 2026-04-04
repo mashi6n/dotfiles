@@ -84,6 +84,8 @@
               ./modules/git.nix
               ./modules/tmux.nix
               ./modules/shell.nix
+              ./modules/docker.nix
+              ./modules/colima.nix
               {
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";
