@@ -8,7 +8,7 @@
     shellAliases = {
       ls = "ls -FG";
       ll = "ls -alFG";
-   };
+    };
 
     initContent = ''
       autoload -Uz colors && colors
@@ -64,7 +64,6 @@
     [plugins.pure]
     github = "sindresorhus/pure"
   '';
-
 
   home.sessionVariables = {
   };

@@ -1,4 +1,5 @@
-{pkgs, user, ...}: {
+{ pkgs, user, ... }:
+{
   nix = {
     enable = false;
   };
@@ -7,4 +8,3 @@
     primaryUser = user;
   };
 }
-

@@ -17,7 +17,12 @@
   };
 
   outputs =
-    { self, home-manager, nix-darwin, ... }@inputs:
+    {
+      self,
+      home-manager,
+      nix-darwin,
+      ...
+    }@inputs:
     let
       lib = inputs.nixpkgs.lib;
 
@@ -52,7 +57,6 @@
           }
         );
 
-
       hosts = {
         mashi6n = {
           system = "aarch64-darwin";
@@ -80,7 +84,11 @@
       };
 
       mkCommonHomeModules =
-        { host, pkgs, homeFile }:
+        {
+          host,
+          pkgs,
+          homeFile,
+        }:
         [
           homeFile
           ./modules/shell.nix
@@ -142,8 +150,8 @@
             ./modules/nix-darwin.nix
           ];
         };
-      
-      mkEmptyDarwinConfig = 
+
+      mkEmptyDarwinConfig =
         host:
         nix-darwin.lib.darwinSystem {
           system = host.system;
