@@ -94,7 +94,7 @@
 
       darwinConfigurations = {
           mashi6n = nix-darwin.lib.darwinSystem {
-            sytstem = "aarch64-darwin";
+            system = "aarch64-darwin";
             modules = [
               ./modules/nix-darwin.nix
             ];
