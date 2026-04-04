@@ -10,7 +10,7 @@
       ll = "ls -alFG";
       python = "python3";
       mp = "multipass";
-    };
+   };
 
     initContent = ''
       autoload -Uz colors && colors
@@ -45,47 +45,37 @@
   programs.sheldon = {
     enable = true;
     enableZshIntegration = true;
-    settings = {
-      shell = "zsh";
-
-      templates = {
-        defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}";
-      };
-
-      plugins = {
-        "00-zsh-defer" = {
-          github = "romkatv/zsh-defer";
-        };
-
-        "10-compinit" = {
-          inline = "autoload -Uz compinit && compinit -C";
-        };
-
-        "20-zsh-async" = {
-          github = "mafredri/zsh-async";
-        };
-
-        "30-zsh-completions" = {
-          github = "zsh-users/zsh-completions";
-          apply = [ "defer" ];
-        };
-
-        "40-zsh-autosuggestions" = {
-          github = "zsh-users/zsh-autosuggestions";
-          apply = [ "defer" ];
-        };
-
-        "50-zsh-syntax-highlighting" = {
-          github = "zsh-users/zsh-syntax-highlighting";
-          apply = [ "defer" ];
-        };
-
-        "60-pure" = {
-          github = "sindresorhus/pure";
-        };
-      };
-    };
   };
+  xdg.configFile."sheldon/plugins.toml".text = ''
+    shell = "zsh"
+
+    [plugins.zsh-defer]
+    github = "romkatv/zsh-defer"
+
+    [templates]
+    defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+    [plugins.compinit]
+    inline = 'autoload -Uz compinit && compinit -C'
+
+    [plugins.zsh-async]
+    github = "mafredri/zsh-async"
+
+    [plugins.zsh-completions]
+    apply = ["defer"]
+    github = "zsh-users/zsh-completions"
+
+    [plugins.zsh-autosuggestions]
+    apply = ["defer"]
+    github = "zsh-users/zsh-autosuggestions"
+
+    [plugins.zsh-syntax-highlighting]
+    apply = ["defer"]
+    github = "zsh-users/zsh-syntax-highlighting"
+
+    [plugins.pure]
+    github = "sindresorhus/pure"
+  '';
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
