@@ -76,15 +76,28 @@
 
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt);
 
-      homeConfigurations."mashi6n" = home-manager.lib.homeManagerConfiguration {
-        pkgs = mkPkgs "aarch64-darwin";
-        modules = [
-          ./home.nix
-          {
-            home.username = "mashi6n";
-            home.homeDirectory = "/Users/mashi6n";
-          }
-        ];
+      homeConfigurations = {
+          mashi6n = home-manager.lib.homeManagerConfiguration {
+            pkgs = mkPkgs "aarch64-darwin";
+            modules = [
+              ./home.nix
+              {
+                home.username = "mashi6n";
+                home.homeDirectory = "/Users/mashi6n";
+              }
+            ];
+          };
+
+          mashi6n-empty = home-manager.lib.homeManagerConfiguration {
+            pkgs = mkPkgs "aarch64-darwin";
+            modules = [
+              ./home-empty.nix
+              {
+                home.username = "mashi6n";
+                home.homeDirectory = "/Users/mashi6n";
+              }
+            ];
+          };
       };
     };
 }
