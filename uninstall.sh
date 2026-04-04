@@ -29,7 +29,12 @@ if [ "$PLATFORM" = "darwin" ]; then
     exit 1
   fi
 else
-  HOST="ubuntu-${ARCH}"
+  if [ "$USER_NAME" = "ubuntu" ]; then
+    HOST="ubuntu-${ARCH}"
+  else
+    echo "Unknown Linux user: $USER_NAME"
+    exit 1
+  fi
 fi
 
 echo "Detected host: $HOST"
