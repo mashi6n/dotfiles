@@ -10,10 +10,10 @@
     ripgrep
     fzf
   ];
-  home.file.".config/nvim".source = ./nvim;
-  home.file.".config/alacritty".source = ./alacritty;
-  home.file.".config/ghostty".source = ./ghostty;
-  home.file.".config/bat".source = ./bat;
-  home.file.".config/sheldon".source = ./sheldon;
-  home.file.".config/karabiner".source = ./karabiner;
+  home.file.".config/nvim".source = ./config/nvim;
+  home.file.".config/alacritty".source = ./config/alacritty;
+  home.file.".config/ghostty".source = ./config/ghostty;
+  home.file.".config/bat".source = ./config/bat;
+  home.file.".config/sheldon".source = ./config/sheldon;
+  home.file.".config/karabiner".source = ./config/karabiner;
 }
