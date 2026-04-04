@@ -23,7 +23,7 @@
       export TERM="xterm-256color"
     '';
   };
-  home.file.".completion.d".source = ./../.completion.d;
+  home.file.".completion.d".source = ./../config/.completion.d;
 
   programs.direnv = {
     enable = true;

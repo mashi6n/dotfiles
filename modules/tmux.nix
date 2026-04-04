@@ -9,5 +9,5 @@
     tmux
   ];
 
-  home.file.".tmux.conf".source = ./../.tmux.conf;
+  home.file.".tmux.conf".source = ./../config/.tmux.conf;
 }
