@@ -6,7 +6,6 @@
 
   home.packages = with pkgs; [
   ];
-  home.file.".config/nvim".source = ./config/nvim;
   home.file.".config/alacritty".source = ./config/alacritty;
   home.file.".config/ghostty".source = ./config/ghostty;
   home.file.".config/bat".source = ./config/bat;
