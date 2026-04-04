@@ -88,7 +88,6 @@
       theme = "Catppuccin Mocha";
     };
   };
-  home.file.".config/bat".source = ./../config/bat;
 
   home.sessionVariables = {
     GOPATH = "$HOME/go";
