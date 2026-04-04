@@ -2,11 +2,17 @@
   description = "An empty flake template that you can adapt to your own environment";
 
   # Flake inputs
-  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0"; # Stable Nixpkgs (use 0.1 for unstable)
+  inputs = {
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0"; # Stable Nixpkgs (use 0.1 for unstable)
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
   # Flake outputs
   outputs =
-    { self, ... }@inputs:
+    { self, home-manager, ... }@inputs:
     let
       # The systems supported for this flake's outputs
       supportedSystems = [
@@ -30,6 +36,13 @@
             };
           }
         );
+      
+      mkPkgs = 
+        system:
+        import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
     in
     {
       # Development environments output by this flake
@@ -61,29 +74,17 @@
         }
       );
 
-      # Default build outputs
-      packages = forEachSupportedSystem (
-        { pkgs, system }:
-        {
-          my-packages = pkgs.buildEnv {
-            name = "my-packages-list";
-            paths = [
-                pkgs.cowsay
-                pkgs.git
-            ];
-          };
-        }
-      );
-
-      # Nix formatter
-
-      # This applies the formatter that follows RFC 166, which defines a standard format:
-      # https://github.com/NixOS/rfcs/pull/166
-
-      # To format all Nix files:
-      # git ls-files -z '*.nix' | xargs -0 -r nix fmt
-      # To check formatting:
-      # git ls-files -z '*.nix' | xargs -0 -r nix develop --command nixfmt --check
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt);
+
+      homeConfigurations."mashi6n" = home-manager.lib.homeManagerConfiguration {
+        pkgs = mkPkgs "aarch64-darwin";
+        modules = [
+          ./home.nix
+          {
+            home.username = "mashi6n";
+            home.homeDirectory = "/Users/mashi6n";
+          }
+        ];
+      };
     };
 }
