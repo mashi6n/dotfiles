@@ -41,6 +41,7 @@
     go-task
     curl
     wget
+    cowsay
   ];
 
 }
