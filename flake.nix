@@ -81,6 +81,7 @@
             pkgs = mkPkgs "aarch64-darwin";
             modules = [
               ./home.nix
+              ./modules/git.nix
               {
                 home.username = "mashi6n";
                 home.homeDirectory = "/Users/mashi6n";
