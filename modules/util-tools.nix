@@ -42,6 +42,7 @@
     curl
     wget
     cowsay
+    lazygit
   ];
 
 }
