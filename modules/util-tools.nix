@@ -43,6 +43,7 @@
     wget
     cowsay
     lazygit
+    gcloud
   ];
 
 }
