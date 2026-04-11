@@ -8,7 +8,6 @@
     shellAliases = {
       ls = "ls -FG";
       ll = "ls -alFG";
-      zed = "/Applications/Zed.app/Contents/MacOS/cli";
     };
 
     initContent = ''
