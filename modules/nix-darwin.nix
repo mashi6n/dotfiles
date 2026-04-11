@@ -35,6 +35,7 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
+      cleanup = "uninstall";
     };
     caskArgs = {
       appdir = "/Applications";
