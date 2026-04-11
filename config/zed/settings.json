@@ -2,6 +2,7 @@
     "ui_font_weight": 400,
     "ui_font_size": 16.0,
     "ui_font_family": ".ZedSans",
+
     "buffer_font_weight": 350.0,
     "buffer_font_size": 14.0,
     "buffer_font_family": "SF Mono",
@@ -9,6 +10,7 @@
         "Osaka-Mono"
     ],
     "buffer_line_height": "standard",
+
     "theme": {
         "mode": "dark",
         "light": "One Light",
@@ -19,10 +21,16 @@
         "light": "Zed (Default)",
         "dark": "Catppuccin Mocha",
     },
+
     "show_edit_predictions": true,
     "edit_predictions": {
         "provider": "copilot"
     },
+
+    "auto_install_extensions": {
+        "catppuccin-icons": true
+    }
+
     "vim_mode": true,
     "terminal": {
         "font_size": 14.0,
