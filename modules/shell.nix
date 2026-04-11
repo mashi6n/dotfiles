@@ -72,6 +72,10 @@
     "$HOME/.local/bin"
     "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   ];
-  home.file.".local/bin/zed".source = "/Applications/Zed.app/Contents/MacOS/cli";
+  home.file.".local/bin/zed".text = ''
+      #!/usr/bin/env bash
+      exec /Applications/Zed.app/Contents/MacOS/cli "$@"
+  '';
+  home.file.".local/bin/zed".executable = true;
 
 }
