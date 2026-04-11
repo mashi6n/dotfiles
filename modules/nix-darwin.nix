@@ -34,7 +34,6 @@
   homebrew = {
     enable = true;
     user = user;
-    enableZshIntegration = true;
 
     onActivation = {
       autoUpdate = true;
