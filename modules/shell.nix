@@ -71,7 +71,7 @@
   home.sessionPath = [
     "$HOME/.local/bin"
     "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    "/Applications/Zed.app/Contents/MacOS/bin"
+    "/Applications/Zed.app/Contents/MacOS"
   ];
 
 }
