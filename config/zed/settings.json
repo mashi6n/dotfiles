@@ -14,7 +14,11 @@
         "light": "One Light",
         "dark": "Catppuccin Mocha - No Italics"
     },
-    "icon_theme": "Catppuccin Mocha",
+    "icon_theme": {
+        "mode": "dark",
+        "light": "Zed (Default)",
+        "dark": "Catppuccin Mocha",
+    },
     "show_edit_predictions": true,
     "edit_predictions": {
         "provider": "copilot"
