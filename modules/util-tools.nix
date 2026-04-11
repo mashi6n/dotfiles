@@ -43,7 +43,7 @@
     wget
     cowsay
     lazygit
-    gcloud
+    google-cloud-sdk
   ];
 
 }
