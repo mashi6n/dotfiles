@@ -39,9 +39,6 @@
       autoUpdate = true;
       cleanup = "uninstall";
     };
-    caskArgs = {
-      appdir = "/Applications";
-    };
     casks = [
       "ghostty"
       "visual-studio-code"
