@@ -8,6 +8,7 @@
     shellAliases = {
       ls = "ls -FG";
       ll = "ls -alFG";
+      zed = "/Applications/Zed.app/Contents/MacOS/cli";
     };
 
     initContent = ''
@@ -72,10 +73,5 @@
     "$HOME/.local/bin"
     "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   ];
-  home.file.".local/bin/zed".text = ''
-      #!/usr/bin/env bash
-      exec /Applications/Zed.app/Contents/MacOS/cli "$@"
-  '';
-  home.file.".local/bin/zed".executable = true;
 
 }
