@@ -13,6 +13,7 @@
 ### Customization
 1. Add your machine's `system`, `username`, and `homeDirectory` to the `hosts` attrset in `flake.nix`.
 2. Extend the `HOST` resolution logic in `install.sh` and `uninstall.sh` to include a branch for the newly added host.
+3. Modify git username and email address in `modules/util-tools.nix`.
 
 ### Install
 ```bash
