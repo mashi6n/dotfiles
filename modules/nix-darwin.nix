@@ -46,7 +46,6 @@
       "notion"
       "notion-calendar"
       "slack"
-      "zed"
     ];
   };
 }

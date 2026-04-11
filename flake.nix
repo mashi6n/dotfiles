@@ -95,6 +95,7 @@
           ./modules/nvim.nix
           ./modules/python.nix
           ./modules/util-tools.nix
+          ./modules/zed.nix
           {
             home.username = host.username;
             home.homeDirectory = host.homeDirectory;
