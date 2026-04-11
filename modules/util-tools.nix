@@ -42,6 +42,8 @@
     curl
     wget
     cowsay
+    lazygit
+    gcloud
   ];
 
 }
