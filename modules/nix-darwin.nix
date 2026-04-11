@@ -37,7 +37,7 @@
       autoUpdate = true;
     };
     caskArgs = {
-      appdir = "~/Applications";
+      appdir = "/Applications";
     };
     casks = [
       "ghostty"
