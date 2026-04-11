@@ -29,7 +29,7 @@
 
     "auto_install_extensions": {
         "catppuccin-icons": true
-    }
+    },
 
     "vim_mode": true,
     "terminal": {
