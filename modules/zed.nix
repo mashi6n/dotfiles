@@ -3,63 +3,63 @@
 {
   programs.zed-editor = {
     enable = true;
-    extensions = [];
+    extensions = [ ];
     userSettings = {
-        ui_font_weight = 400;
-        ui_font_size = 16.0;
-        ui_font_family = ".ZedSans";
+      ui_font_weight = 400;
+      ui_font_size = 16.0;
+      ui_font_family = ".ZedSans";
 
-        buffer_font_weight = 350.0;
-        buffer_font_size = 14.0;
-        buffer_font_family = "SF Mono";
-        buffer_font_fallbacks = [
-          "Osaka-Mono"
-        ];
-        buffer_line_height = "standard";
+      buffer_font_weight = 350.0;
+      buffer_font_size = 14.0;
+      buffer_font_family = "SF Mono";
+      buffer_font_fallbacks = [
+        "Osaka-Mono"
+      ];
+      buffer_line_height = "standard";
 
-        theme = {
-          mode= "dark";
-          light= "One Light";
-          dark= "Catppuccin Mocha - No Italics";
-        };
-        icon_theme = "Catppuccin Mocha";
+      theme = {
+        mode = "dark";
+        light = "One Light";
+        dark = "Catppuccin Mocha - No Italics";
+      };
+      icon_theme = "Catppuccin Mocha";
 
-        show_edit_predictions = true;
-        edit_predictions = {
-           provider = "copilot";
-        };
+      show_edit_predictions = true;
+      edit_predictions = {
+        provider = "copilot";
+      };
 
-        vim_mode = true;
+      vim_mode = true;
 
-        terminal = {
-          font_size = 14.0;
-          font_family = "SF Mono";
-          max_scroll_history_lines = 2000;
-        };
-        load_direnv = "shell_hook";
-        
-        autosave = {
-          after_delay = {
-            milliseconds = 1000;
-          };
-        };
-        format_on_save = "on";
+      terminal = {
+        font_size = 14.0;
+        font_family = "SF Mono";
+        max_scroll_history_lines = 2000;
+      };
+      load_direnv = "shell_hook";
 
-        tab_bar = {
-          show = false;
+      autosave = {
+        after_delay = {
+          milliseconds = 1000;
         };
-        relative_line_numbers = "enabled";
-        gutter = {
-          line_numbers = true;
-        };
-        minimap = {
-          "show" = "always";
-        };
+      };
+      format_on_save = "on";
 
-        telemetry = {
-          diagnostics = false;
-          metrics = false;
-        };
+      tab_bar = {
+        show = false;
+      };
+      relative_line_numbers = "enabled";
+      gutter = {
+        line_numbers = true;
+      };
+      minimap = {
+        "show" = "always";
+      };
+
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
     };
   };
 }
