@@ -33,6 +33,8 @@
 
   homebrew = {
     enable = true;
+    user = user;
+
     onActivation = {
       autoUpdate = true;
     };
@@ -46,6 +48,7 @@
       "notion"
       "notion-calendar"
       "slack"
+      "zed"
     ];
   };
 }

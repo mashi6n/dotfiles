@@ -25,7 +25,8 @@
     },
 
     "auto_install_extensions": {
-        "catppuccin-icons": true
+        "catppuccin-icons": true,
+        "nix": true
     },
 
     "vim_mode": true,

@@ -70,7 +70,7 @@
 
   home.sessionPath = [
     "$HOME/.local/bin"
-    "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    "/opt/homebrew/bin"
   ];
 
 }
