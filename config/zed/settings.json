@@ -1,14 +1,11 @@
 {
     "ui_font_weight": 400,
-    "ui_font_size": 16.0,
+    "ui_font_size": 20.0,
     "ui_font_family": ".ZedSans",
 
-    "buffer_font_weight": 350.0,
+    "buffer_font_weight": 400.0,
     "buffer_font_size": 14.0,
     "buffer_font_family": "SF Mono",
-    "buffer_font_fallbacks": [
-        "Osaka-Mono"
-    ],
     "buffer_line_height": "standard",
 
     "theme": {
