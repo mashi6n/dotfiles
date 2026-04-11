@@ -70,7 +70,8 @@
 
   home.sessionPath = [
     "$HOME/.local/bin"
-    "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    "/Applications/Zed.app/Contents/Resources/app/bin"
   ];
 
 }
