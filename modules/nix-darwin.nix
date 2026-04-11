@@ -37,7 +37,6 @@
 
     onActivation = {
       autoUpdate = true;
-      cleanup = "uninstall";
     };
     casks = [
       "ghostty"
