@@ -36,6 +36,9 @@
     onActivation = {
       autoUpdate = true;
     };
+    caskArgs = {
+      appdir = "~/Applications";
+    };
     casks = [
       "ghostty"
       "visual-studio-code"
