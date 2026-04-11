@@ -1,0 +1,49 @@
+{
+    "ui_font_weight": 400,
+    "ui_font_size": 16.0,
+    "ui_font_family": ".ZedSans",
+    "buffer_font_weight": 350.0,
+    "buffer_font_size": 14.0,
+    "buffer_font_family": "SF Mono",
+    "buffer_font_fallbacks": [
+        "Osaka-Mono"
+    ],
+    "buffer_line_height": "standard",
+    "theme": {
+        "mode": "dark",
+        "light": "One Light",
+        "dark": "Catppuccin Mocha - No Italics"
+    },
+    "icon_theme": "Catppuccin Mocha",
+    "show_edit_predictions": true,
+    "edit_predictions": {
+        "provider": "copilot"
+    },
+    "vim_mode": true,
+    "terminal": {
+        "font_size": 14.0,
+        "font_family": "SF Mono",
+        "max_scroll_history_lines": 2000
+    },
+    "load_direnv": "shell_hook",
+    "autosave": {
+        "after_delay": {
+            "milliseconds": 1000
+        },
+    },
+    "format_on_save": "on",
+    "tab_bar": {
+        "show": false
+    },
+    "relative_line_numbers": "enabled",
+    "gutter": {
+        "line_numbers": true
+    },
+    "minimap": {
+        "show": "always"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    }
+}
