@@ -3,6 +3,6 @@
 {
   home.packages = with pkgs; [
     docker
-    docker-credential-helper
+    docker-credential-helpers
   ];
 }
