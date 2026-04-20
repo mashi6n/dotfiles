@@ -19,6 +19,15 @@
         "dark": "Catppuccin Mocha",
     },
 
+    "languages": {
+        "Python": {
+            "language_servers": [
+                "ty",
+                "ruff"
+            ]
+        }
+    },
+
     "show_edit_predictions": true,
     "edit_predictions": {
         "provider": "copilot"
@@ -26,7 +35,14 @@
 
     "auto_install_extensions": {
         "catppuccin-icons": true,
-        "nix": true
+        "nix": true,
+        "terraform": true,
+        "dockerfile": true,
+        "html": true,
+        "toml": true,
+        "latex": true,
+        "make": true,
+        "git_friendly": true
     },
 
     "vim_mode": true,
