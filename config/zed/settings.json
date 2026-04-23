@@ -1,76 +1,76 @@
 {
-    "ui_font_weight": 400,
-    "ui_font_size": 18.0,
-    "ui_font_family": ".ZedSans",
+  "ui_font_weight": 400,
+  "ui_font_size": 18.0,
+  "ui_font_family": ".ZedSans",
 
-    "buffer_font_weight": 400.0,
-    "buffer_font_size": 14.0,
-    "buffer_font_family": "SF Mono",
-    "buffer_line_height": "standard",
+  "buffer_font_weight": 400.0,
+  "buffer_font_size": 14.0,
+  "buffer_font_family": "SF Mono",
+  "buffer_line_height": "standard",
 
-    "theme": {
-        "mode": "dark",
-        "light": "One Light",
-        "dark": "Catppuccin Mocha - No Italics"
-    },
-    "icon_theme": {
-        "mode": "dark",
-        "light": "Zed (Default)",
-        "dark": "Catppuccin Mocha",
-    },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics",
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Mocha",
+  },
 
-    "languages": {
-        "Python": {
-            "language_servers": [
-                "ty",
-                "ruff"
-            ]
-        }
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "ruff"],
     },
+  },
 
-    "show_edit_predictions": true,
-    "edit_predictions": {
-        "provider": "copilot"
-    },
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "provider": "copilot",
+  },
 
-    "auto_install_extensions": {
-        "catppuccin-icons": true,
-        "nix": true,
-        "terraform": true,
-        "dockerfile": true,
-        "html": true,
-        "toml": true,
-        "jsonl": true,
-        "latex": true,
-        "make": true,
-        "git_friendly": true
-    },
+  "auto_install_extensions": {
+    "catppuccin-icons": true,
+    "nix": true,
+    "terraform": true,
+    "dockerfile": true,
+    "html": true,
+    "toml": true,
+    "jsonl": true,
+    "latex": true,
+    "make": true,
+    "git_friendly": true,
+  },
 
-    "vim_mode": true,
-    "terminal": {
-        "font_size": 14.0,
-        "font_family": "SF Mono",
-        "max_scroll_history_lines": 2000
+  "project_panel": {
+    "dock": "left",
+  },
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 14.0,
+    "font_family": "SF Mono",
+    "max_scroll_history_lines": 2000,
+  },
+  "load_direnv": "shell_hook",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 100,
     },
-    "load_direnv": "shell_hook",
-    "autosave": {
-        "after_delay": {
-            "milliseconds": 1000
-        },
-    },
-    "format_on_save": "on",
-    "tab_bar": {
-        "show": false
-    },
-    "relative_line_numbers": "enabled",
-    "gutter": {
-        "line_numbers": true
-    },
-    "minimap": {
-        "show": "always"
-    },
-    "telemetry": {
-        "diagnostics": false,
-        "metrics": false
-    }
+  },
+  "format_on_save": "on",
+  "tab_bar": {
+    "show": false,
+  },
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true,
+  },
+  "minimap": {
+    "show": "always",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
 }
