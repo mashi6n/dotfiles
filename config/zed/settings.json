@@ -48,6 +48,12 @@
   "project_panel": {
     "dock": "left",
   },
+  "git_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
   "vim_mode": true,
   "terminal": {
     "font_size": 14.0,
