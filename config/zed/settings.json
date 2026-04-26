@@ -25,6 +25,16 @@
     },
   },
 
+  "lsp": {
+    "ty": {
+      "settings":{
+        "completions":{
+          "autoImport": false
+        }
+      }
+    }
+  },
+
   "show_edit_predictions": true,
   "edit_predictions": {
     "provider": "copilot",
