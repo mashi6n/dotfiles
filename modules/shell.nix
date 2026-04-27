@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   warpCert = "${config.home.homeDirectory}/.local/share/warp/combined.pem";
@@ -38,7 +38,7 @@ in
       if [ -f "${warpCrt}" ]; then
         export NODE_EXTRA_CA_CERTS="${warpCrt}"
       fi
-    ''
+    '';
   };
   home.file.".completion.d".source = ./../config/.completion.d;
 
