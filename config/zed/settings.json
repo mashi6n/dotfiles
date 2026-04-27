@@ -42,7 +42,7 @@
     "jsonl": true,
     "latex": true,
     "make": true,
-    "git_friendly": true,
+    "git-firefly": true,
   },
 
   "project_panel": {
