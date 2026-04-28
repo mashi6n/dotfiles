@@ -52,6 +52,7 @@
       "notion-calendar"
       "slack"
       "zed"
+      "claude-code"
     ];
   };
 }

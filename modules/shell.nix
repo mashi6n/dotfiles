@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  warpCert = "${config.home.homeDirectory}/.local/share/warp/combined.pem";
+  warpCrt = "${config.home.homeDirectory}/.local/share/warp/cloudflare.crt";
+in
 {
   programs.zsh = {
     enable = true;
@@ -21,6 +25,19 @@
       bindkey -e
 
       export TERM="xterm-256color"
+    '';
+
+    envExtra = ''
+      if [ -f "${warpCert}" ]; then
+        export SSL_CERT_FILE="${warpCert}"
+        export REQUESTS_CA_BUNDLE="${warpCert}"
+        export UV_HTTP_CA_BUNDLE="${warpCert}"
+        export GRPC_DEFAULT_SSL_ROOTS_FILE_PATH="${warpCert}"
+      fi
+
+      if [ -f "${warpCrt}" ]; then
+        export NODE_EXTRA_CA_CERTS="${warpCrt}"
+      fi
     '';
   };
   home.file.".completion.d".source = ./../config/.completion.d;
