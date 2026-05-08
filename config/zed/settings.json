@@ -45,6 +45,10 @@
     "git-firefly": true,
   },
 
+  "file_types": {
+    "SQL": ["sqlx"]
+  },
+
   "project_panel": {
     "dock": "left",
   },
