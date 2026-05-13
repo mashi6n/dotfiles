@@ -46,7 +46,7 @@
   },
 
   "file_types": {
-    "SQL": ["sqlx"]
+    "SQL": ["sqlx"],
   },
 
   "project_panel": {
@@ -85,6 +85,7 @@
   "minimap": {
     "show": "always",
   },
+  "cli_default_open_behavior": "new_window",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
