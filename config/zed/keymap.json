@@ -18,4 +18,19 @@
       "enter": "editor::ConfirmCompletion",
     },
   },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space y": ["workspace::SendKeystrokes", "\" + y"],
+      "space p": ["workspace::SendKeystrokes", "\" + p"],
+      "space g": "git_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && multibuffer && !menu",
+    "bindings": {
+      "n": "editor::MoveToStartOfNextExcerpt",
+      "N": "editor::MoveToEndOfPreviousExcerpt",
+    },
+  },
 ]
