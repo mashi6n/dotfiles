@@ -1,0 +1,36 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction",
+      "enter": "editor::ConfirmCompletion",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space y": ["workspace::SendKeystrokes", "\" + y"],
+      "space p": ["workspace::SendKeystrokes", "\" + p"],
+      "space g": "git_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && multibuffer && !menu",
+    "bindings": {
+      "n": "editor::MoveToStartOfNextExcerpt",
+      "N": "editor::MoveToEndOfPreviousExcerpt",
+    },
+  },
+]

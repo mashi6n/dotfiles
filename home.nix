@@ -8,4 +8,5 @@
   home.file.".config/ghostty".source = ./config/ghostty;
   home.file.".config/karabiner".source = ./config/karabiner;
   home.file.".config/zed/settings.json".source = ./config/zed/settings.json;
+  home.file.".config/zed/keymap.json".source = ./config/zed/keymap.json;
 }
