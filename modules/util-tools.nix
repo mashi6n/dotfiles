@@ -13,6 +13,7 @@
 
   programs.tmux = {
     enable = true;
+    keyMode = "vi";
     extraConfig = ''
       # 基本設定
       ## 256色端末を使用する
@@ -46,9 +47,8 @@
       bind-key -T copy-mode-vi v send -X begin-selection
       
       set-option -g history-limit 5000
-    ''
-  ;
-  # home.file.".tmux.conf".source = ./../config/.tmux.conf;
+    '';
+  };
 
   programs.fzf = {
     enable = true;
