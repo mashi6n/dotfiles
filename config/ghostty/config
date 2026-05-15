@@ -1,5 +1,6 @@
 theme = Catppuccin Mocha
 font-family = "SFMono Nerd Font"
+font-family = "Osaka-Mono"
 font-style = "Regular"
 font-style-bold = "Medium"
 font-size = 14
