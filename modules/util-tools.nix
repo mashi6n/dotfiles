@@ -78,6 +78,7 @@
     cowsay
     lazygit
     google-cloud-sdk
+    terraform
   ];
 
 }
