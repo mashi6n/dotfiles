@@ -25,6 +25,10 @@ in
       bindkey -e
 
       export TERM="xterm-256color"
+
+      if [ -d "$HOME/.safe-chain" ]; then
+          source "$HOME/.safe-chain/scripts/init-posix.sh"
+      fi
     '';
 
     envExtra = ''
