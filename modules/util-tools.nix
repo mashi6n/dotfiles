@@ -29,23 +29,23 @@
       setw -g pane-base-index 1
       set -g window-style 'bg=#161621'
       set -g window-active-style 'bg=#1e1e2e'
-      
+
       ## prefix + -で水平分割
       bind - split-window -v
       ## prefix + |で垂直分割
       bind | split-window -h
-      
+
       # vimのキーバインドでペインを移動する
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
-      
+
       ## コマンドモードでの選択方法をvim風に変更
       set-window-option -g mode-keys vi
       setw -g mode-keys vi
       bind-key -T copy-mode-vi v send -X begin-selection
-      
+
       set-option -g history-limit 5000
     '';
   };
