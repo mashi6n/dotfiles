@@ -36,6 +36,7 @@
     "terraform": true,
     "dockerfile": true,
     "csv": true,
+    "rainbow-csv": true,
     "html": true,
     "xml": true,
     "toml": true,
