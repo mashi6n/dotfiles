@@ -29,6 +29,14 @@
   "edit_predictions": {
     "provider": "copilot",
   },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+    "cursor": {
+      "type": "registry",
+    }
+  },
 
   "auto_install_extensions": {
     "catppuccin-icons": true,
