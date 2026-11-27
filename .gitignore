@@ -2,3 +2,4 @@
 **/.DS_Store
 raycast/extensions
 nvim/.nvimlog
+config/karabiner/automatic_backups
