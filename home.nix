@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.stateVersion = "25.05";
@@ -6,7 +6,8 @@
 
   home.file.".config/alacritty".source = ./config/alacritty;
   home.file.".config/ghostty".source = ./config/ghostty;
-  home.file.".config/karabiner".source = ./config/karabiner;
+  home.file.".config/karabiner".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/karabiner";
   home.file.".config/zed/settings.json".source = ./config/zed/settings.json;
   home.file.".config/zed/keymap.json".source = ./config/zed/keymap.json;
 }
